@@ -20,7 +20,7 @@ const TDSPage = () => {
       const decodedToken = JSON.parse(atob(token.split('.')[1]));
       setUsername(decodedToken.sub);
       setRole(decodedToken.role);
-      fetchTDSData();
+      // fetchTDSData();
     } catch  {
       setError('Invalid token. Please log in again.');
     }
@@ -52,18 +52,20 @@ const TDSPage = () => {
           return;
       }
 
-      const response = await axios.get(`https://activus-server-production.up.railway.app${endpoint}`, {
+      const response = await axios.get(`https://activusserver.onrender.com${endpoint}`, {
         headers: { Authorization: `Bearer ${token}` },
         params
       });
 
       setTdsList(response.data.data || []);
-    } catch {
-      setError( 'Failed to fetch TDS data');
-    } finally {
-      setIsLoading(false);
-    }
-  };
+    } catch(err) {
+      // Improved error handling to see the server's message if possible
+      setError(err.response?.data?.message || 'Failed to fetch TDS data');
+      console.error("Fetch TDS Error:", err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   useEffect(() => {
     if (role && username) {
@@ -95,15 +97,17 @@ const TDSPage = () => {
           return;
       }
 
-      await axios.put(`https://activus-server-production.up.railway.app${endpoint}`, {}, {
+      await axios.put(`https://activusserver.onrender.com${endpoint}`, {}, {
         headers: { Authorization: `Bearer ${token}` },
         params
       });
 
       setSuccess('Action completed successfully!');
       setTdsList(tdsList.filter(tds => tds.tdsId !== tdsId));
-    } catch  {
-      setError( 'Failed to process approval');
+    } catch(err) {
+      // Improved error handling
+      setError(err.response?.data?.message || 'Failed to process approval');
+      console.error("Approval Error:", err);
     } finally {
       setIsLoading(false);
     }
@@ -121,7 +125,7 @@ const TDSPage = () => {
       return;
     }
 
-    const downloadUrl = `https://activus-server-production.up.railway.app/api/tds/download/${fileName}`;
+    const downloadUrl = `https://activusserver.onrender.com/api/tds/download/${fileName}`;
     const token = localStorage.getItem('token');
     
     if (!token) {

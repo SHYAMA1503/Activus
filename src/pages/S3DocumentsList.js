@@ -35,7 +35,7 @@ const S3DocumentsList = () => {
   const fetchStakeholderUsername = async (contractorUsername) => {
     try {
       const response = await axios.get(
-        'https://activus-server-production.up.railway.app/api/projects/contractor/' + contractorUsername,
+        'https://activusserver.onrender.com/api/projects/contractor/' + contractorUsername,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       if (response.data.data && response.data.data.length > 0) {
@@ -55,7 +55,7 @@ const S3DocumentsList = () => {
     
     try {
       const response = await axios.get(
-        'https://activus-server-production.up.railway.app/api/tds/s3Documents',
+        'https://activusserver.onrender.com/api/tds/s3Documents',
         {
           headers: { Authorization: `Bearer ${token}` },
           params: { 
@@ -85,7 +85,7 @@ const S3DocumentsList = () => {
       return;
     }
 
-    const downloadUrl = `https://activus-server-production.up.railway.app/api/tds/downloadFromS3?s3Key=${encodeURIComponent(s3Key)}`;
+    const downloadUrl = `https://activusserver.onrender.com/api/tds/downloadFromS3?s3Key=${encodeURIComponent(s3Key)}`;
     const token = localStorage.getItem('token');
     
     if (!token) {

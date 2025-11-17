@@ -4,7 +4,7 @@ module.exports = {
       return [
         {
           source: '/api/:path*',
-          destination: 'https://activus-server-production.up.railway.app/api/:path*',
+          destination: 'https://activusserver.onrender.com/api/:path*',
         },
       ];
     },

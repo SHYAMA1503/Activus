@@ -31,7 +31,7 @@ const FullyApprovedTDSPage = () => {
     
     try {
       const response = await axios.get(
-        'https://activus-server-production.up.railway.app/api/tds/approved',
+        'https://activusserver.onrender.com/api/tds/approved',
         {
           headers: { Authorization: `Bearer ${token}` },
           params: { username }
@@ -64,7 +64,7 @@ const FullyApprovedTDSPage = () => {
       return;
     }
 
-    const downloadUrl = `https://activus-server-production.up.railway.app/api/tds/download/${fileName}`;
+    const downloadUrl = `https://activusserver.onrender.com/api/tds/download/${fileName}`;
     const token = localStorage.getItem('token');
     
     if (!token) {

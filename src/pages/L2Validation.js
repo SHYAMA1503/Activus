@@ -32,7 +32,7 @@ const L2Validation = () => {
     
     try {
       const response = await axios.get(
-        'https://activus-server-production.up.railway.app/api/tds/need-to-approve/l2-after-l3',
+        'https://activusserver.onrender.com/api/tds/need-to-approve/l2-after-l3',
         {
           headers: { Authorization: `Bearer ${token}` },
           params: { username }
@@ -60,7 +60,7 @@ const L2Validation = () => {
     
     try {
       const response = await axios.put(
-        `https://activus-server-production.up.railway.app/api/tds/approve/l2-after-l3/${tdsId}`,
+        `https://activusserver.onrender.com/api/tds/approve/l2-after-l3/${tdsId}`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -90,7 +90,7 @@ const L2Validation = () => {
       return;
     }
 
-    const downloadUrl = `https://activus-server-production.up.railway.app/api/tds/download/${fileName}`;
+    const downloadUrl = `https://activusserver.onrender.com/api/tds/download/${fileName}`;
     const token = localStorage.getItem('token');
     
     if (!token) {

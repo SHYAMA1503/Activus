@@ -9,34 +9,39 @@ const ProjectsPage = () => {
   const [token, setToken] = useState('');
   const router = useRouter();
 
-  useEffect(() => {
-    // This code will only run on the client side
-    if (typeof window !== 'undefined') {
-      token = localStorage.getItem('token');
-      const role = localStorage.getItem('role');
-      
-      setToken(token);
-      setCurrentUserRole(role);
+ useEffect(() => {
+    // This code will only run on the client side
+    if (typeof window !== 'undefined') {
+      
+      // 👇 Change: Declare a new variable to hold the retrieved token
+      const localToken = localStorage.getItem('token'); 
+      const role = localStorage.getItem('role');
+      
+      // 👇 Change: Use the setToken function to update the state
+      setToken(localToken);
+      setCurrentUserRole(role);
 
-      if (!token) {
-        setError('You must log in to view projects.');
-        return;
-      }
+      // Use the newly retrieved 'localToken' for the check and the API call
+      if (!localToken) { 
+        setError('You must log in to view projects.');
+        return;
+      }
 
-      axios
-        .get('https://activus-server-production.up.railway.app/api/projects/all', {
-          headers: { Authorization: `Bearer ${token}` },
-        })
-        .then((response) => {
-          setProjects(response.data.data || []);
-          setError('');
-        })
-        .catch((err) => {
-          console.error('Error fetching projects:', err);
-          setError('Error fetching projects.');
-        });
-    }
-  }, []); // Empty dependency array means this runs once on mount
+      axios
+        .get('https://activusserver.onrender.com/api/projects/all', {
+          // Use 'localToken' for the header immediately
+          headers: { Authorization: `Bearer ${localToken}` }, 
+        })
+        .then((response) => {
+          setProjects(response.data.data || []);
+          setError('');
+        })
+        .catch((err) => {
+          console.error('Error fetching projects:', err);
+          setError('Error fetching projects.');
+        });
+    }
+  }, []); // Empty dependency array means this runs once on mount // Empty dependency array means this runs once on mount
 
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };

@@ -31,7 +31,7 @@ const ContractorFullyApprovedTDS = () => {
     
     try {
       const response = await axios.get(
-        'https://activus-server-production.up.railway.app/api/tds/approved',
+        'https://activusserver.onrender.com/api/tds/approved',
         {
           headers: { Authorization: `Bearer ${token}` },
           params: { username }
@@ -58,7 +58,7 @@ const ContractorFullyApprovedTDS = () => {
     
     try {
       const response = await axios.post(
-        `https://activus-server-production.up.railway.app/api/tds/uploadToS3/${tdsId}`,
+        `https://activusserver.onrender.com/api/tds/uploadToS3/${tdsId}`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -90,7 +90,7 @@ const ContractorFullyApprovedTDS = () => {
       return;
     }
 
-    const downloadUrl = `https://activus-server-production.up.railway.app/api/tds/download/${fileName}`;
+    const downloadUrl = `https://activusserver.onrender.com/api/tds/download/${fileName}`;
     const token = localStorage.getItem('token');
     
     if (!token) {

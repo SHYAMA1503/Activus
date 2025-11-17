@@ -29,7 +29,7 @@ const CreateTDS = () => {
           return;
         }
 
-        const response = await axios.get('https://activus-server-production.up.railway.app/api/projects/assigned', {
+        const response = await axios.get('https://activusserver.onrender.com/api/projects/assigned', {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -96,7 +96,7 @@ const CreateTDS = () => {
     try {
       setIsLoading(true);
       const response = await axios.post(
-        'https://activus-server-production.up.railway.app/api/tds/create',
+        'https://activusserver.onrender.com/api/tds/create',
         formData,
         {
           headers: {

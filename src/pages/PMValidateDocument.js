@@ -19,11 +19,16 @@ const PMValidateDocument = () => {
     try {
       const decodedToken = JSON.parse(atob(token.split('.')[1]));
       setUsername(decodedToken.sub);
-      fetchTDSData();
+      // fetchTDSData();
     } catch  {
       setError('Invalid token. Please log in again.');
     }
   }, []);
+useEffect(() => {
+        if (token && username) {
+            fetchTDSData();
+        }
+    }, [token, username]);
 
   const fetchTDSData = async () => {
     setIsLoading(true);
@@ -32,7 +37,7 @@ const PMValidateDocument = () => {
     
     try {
       const response = await axios.get(
-        'https://activus-server-production.up.railway.app/api/tds/pendingPMValidation',
+        'https://activusserver.onrender.com/api/tds/pendingPMValidation',
         {
           headers: { Authorization: `Bearer ${token}` },
           params: { username }
@@ -60,7 +65,7 @@ const PMValidateDocument = () => {
     
     try {
       const response = await axios.post(
-        `https://activus-server-production.up.railway.app/api/tds/validateDocumentByPM/${tdsId}`,
+        `https://activusserver.onrender.com/api/tds/validateDocumentByPM/${tdsId}`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -93,7 +98,7 @@ const PMValidateDocument = () => {
       return;
     }
 
-    const downloadUrl = `https://activus-server-production.up.railway.app/api/tds/download/${fileName}`;
+    const downloadUrl = `https://activusserver.onrender.com/api/tds/download/${fileName}`;
     const token = localStorage.getItem('token');
     
     if (!token) {
