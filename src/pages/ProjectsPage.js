@@ -6,7 +6,7 @@ const ProjectsPage = () => {
   const [projects, setProjects] = useState([]);
   const [error, setError] = useState('');
   const [currentUserRole, setCurrentUserRole] = useState('');
-  const [token, setToken] = useState('');
+  // const [token, setToken] = useState('');
   const router = useRouter();
 
  useEffect(() => {
@@ -18,7 +18,7 @@ const ProjectsPage = () => {
       const role = localStorage.getItem('role');
       
       // 👇 Change: Use the setToken function to update the state
-      setToken(localToken);
+      // setToken(localToken);
       setCurrentUserRole(role);
 
       // Use the newly retrieved 'localToken' for the check and the API call
