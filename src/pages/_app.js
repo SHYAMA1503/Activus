@@ -37,14 +37,30 @@ function MyApp({ Component, pageProps }) {
     return <div>Loading...</div>; // Or any loading indicator
   }
   
-  return (
-    <div style={{ display: "flex" }}>
-      {showSidebar && role && <Sidebar role={role} />}
-      <div style={{ flex: 1 }}>
-        <Component {...pageProps} />
-      </div>
-    </div>
-  );
+ return (
+        // ✅ CHANGE 1: Set the main wrapper to minHeight: '100vh'
+        <div style={{ display: "flex", minHeight: "100vh" }}>
+            
+            {/* The Sidebar component */}
+            {showSidebar && role && 
+                // ✅ OPTIONAL: Add flexShrink: 0 to prevent sidebar from shrinking
+                <Sidebar role={role} style={{ flexShrink: 0 }} />
+            } 
+            
+            {/* The main content area */}
+            <div style={{ 
+                // ✅ CHANGE 2: Ensure content takes up all remaining space
+                flex: 1, 
+                // ✅ CHANGE 3: Set minimum height to 100% of the parent (100vh)
+                minHeight: "100vh", 
+                // ✅ CHANGE 4: Add overflow-y: auto for scrollable content
+                overflowY: "auto", 
+                // Optional: You might need to adjust padding or background here
+            }}>
+                <Component {...pageProps} />
+            </div>
+        </div>
+    );
 }
 
 export default MyApp;
