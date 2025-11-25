@@ -33,7 +33,7 @@ const CreateProject = () => {
           return;
         }
         
-        const response = await axios.get('https://activusserver.onrender.com/api/auth/approved-users', {
+        const response = await axios.get('https://activus-hqg2c8d7gqg7bbhq.eastasia-01.azurewebsites.net/api/auth/approved-users', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setApprovedUsers(response.data.data || []);
@@ -101,7 +101,7 @@ const CreateProject = () => {
         return;
       }
 
-      await axios.post('https://activusserver.onrender.com/api/projects/create', {
+      await axios.post('https://activus-hqg2c8d7gqg7bbhq.eastasia-01.azurewebsites.net/api/projects/create', {
         projectName: formData.projectName,
         projectDescription: formData.projectDescription,
         stakeholderId: roleAssignments.Stakeholder[0],

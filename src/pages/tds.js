@@ -52,7 +52,7 @@ const TDSPage = () => {
           return;
       }
 
-      const response = await axios.get(`https://activusserver.onrender.com${endpoint}`, {
+      const response = await axios.get(`https://activus-hqg2c8d7gqg7bbhq.eastasia-01.azurewebsites.net${endpoint}`, {
         headers: { Authorization: `Bearer ${token}` },
         params
       });
@@ -97,7 +97,7 @@ const TDSPage = () => {
           return;
       }
 
-      await axios.put(`https://activusserver.onrender.com${endpoint}`, {}, {
+      await axios.put(`https://activus-hqg2c8d7gqg7bbhq.eastasia-01.azurewebsites.net${endpoint}`, {}, {
         headers: { Authorization: `Bearer ${token}` },
         params
       });
@@ -125,7 +125,7 @@ const TDSPage = () => {
       return;
     }
 
-    const downloadUrl = `https://activusserver.onrender.com/api/tds/download/${fileName}`;
+    const downloadUrl = `https://activus-hqg2c8d7gqg7bbhq.eastasia-01.azurewebsites.net/api/tds/download/${fileName}`;
     const token = localStorage.getItem('token');
     
     if (!token) {

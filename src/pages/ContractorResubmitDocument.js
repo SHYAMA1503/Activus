@@ -33,7 +33,7 @@ const ContractorResubmitDocument = () => {
     
     try {
       const response = await axios.get(
-        'https://activusserver.onrender.com/api/tds/rejectedBySME',
+        'https://activus-hqg2c8d7gqg7bbhq.eastasia-01.azurewebsites.net/api/tds/rejectedBySME',
         {
           headers: { Authorization: `Bearer ${token}` },
           params: { username }
@@ -132,7 +132,7 @@ const ContractorResubmitDocument = () => {
 
     try {
       await axios.post(
-        `https://activusserver.onrender.com/api/tds/reupload/${tdsId}`,
+        `https://activus-hqg2c8d7gqg7bbhq.eastasia-01.azurewebsites.net/api/tds/reupload/${tdsId}`,
         formData,
         {
           headers: { 
@@ -164,7 +164,7 @@ const ContractorResubmitDocument = () => {
     }
 
     const fileName = documentPath.split(/[\\/]/).pop();
-    const downloadUrl = `https://activusserver.onrender.com/api/tds/download/${fileName}`;
+    const downloadUrl = `https://activus-hqg2c8d7gqg7bbhq.eastasia-01.azurewebsites.net/api/tds/download/${fileName}`;
 
     fetch(downloadUrl, {
       headers: { Authorization: `Bearer ${token}` }

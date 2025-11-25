@@ -32,7 +32,7 @@ const SMEValidateDocument = () => {
     
     try {
       const response = await axios.get(
-        'https://activusserver.onrender.com/api/tds/pendingSMEValidation',
+        'https://activus-hqg2c8d7gqg7bbhq.eastasia-01.azurewebsites.net/api/tds/pendingSMEValidation',
         {
           headers: { Authorization: `Bearer ${token}` },
           params: { username }
@@ -60,7 +60,7 @@ const SMEValidateDocument = () => {
     
     try {
       const response = await axios.post(
-        `https://activusserver.onrender.com/api/tds/validateDocumentBySME/${tdsId}`,
+        `https://activus-hqg2c8d7gqg7bbhq.eastasia-01.azurewebsites.net/api/tds/validateDocumentBySME/${tdsId}`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -94,7 +94,7 @@ const SMEValidateDocument = () => {
       return;
     }
 
-    const downloadUrl = `https://activusserver.onrender.com/api/tds/download/${fileName}`;
+    const downloadUrl = `https://activus-hqg2c8d7gqg7bbhq.eastasia-01.azurewebsites.net/api/tds/download/${fileName}`;
     const token = localStorage.getItem('token');
     
     if (!token) {

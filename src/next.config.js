@@ -4,7 +4,7 @@ module.exports = {
       return [
         {
           source: '/api/:path*',
-          destination: 'https://activusserver.onrender.com/api/:path*',
+          destination: 'https://activus-hqg2c8d7gqg7bbhq.eastasia-01.azurewebsites.net/api/:path*',
         },
       ];
     },

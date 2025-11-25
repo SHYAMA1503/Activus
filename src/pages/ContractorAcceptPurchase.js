@@ -34,7 +34,7 @@ const ContractorAcceptPurchase = () => {
     
     try {
       const response = await axios.get(
-        'https://activusserver.onrender.com/api/tds/pmApproved',
+        'https://activus-hqg2c8d7gqg7bbhq.eastasia-01.azurewebsites.net/api/tds/pmApproved',
         {
           headers: { Authorization: `Bearer ${token}` },
           params: { username }
@@ -80,7 +80,7 @@ const ContractorAcceptPurchase = () => {
       formData.append('lrCopy', lrCopy);
 
       const response = await axios.post(
-        `https://activusserver.onrender.com/api/tds/finalizePurchase/${tdsId}`,
+        `https://activus-hqg2c8d7gqg7bbhq.eastasia-01.azurewebsites.net/api/tds/finalizePurchase/${tdsId}`,
         formData,
         {
           headers: { 
@@ -117,7 +117,7 @@ const ContractorAcceptPurchase = () => {
       return;
     }
 
-    const downloadUrl = `https://activusserver.onrender.com/api/tds/download/${fileName}`;
+    const downloadUrl = `https://activus-hqg2c8d7gqg7bbhq.eastasia-01.azurewebsites.net/api/tds/download/${fileName}`;
     const token = localStorage.getItem('token');
     
     if (!token) {

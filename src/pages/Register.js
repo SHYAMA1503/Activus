@@ -14,7 +14,7 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://activusserver.onrender.com/api/auth/register', {
+      const response = await axios.post('https://activus-hqg2c8d7gqg7bbhq.eastasia-01.azurewebsites.net/api/auth/register', {
         username,
         password,
         emailId,

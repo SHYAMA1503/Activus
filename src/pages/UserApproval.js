@@ -17,7 +17,7 @@ const UserApproval = () => {
     }
 
     axios
-      .get("https://activusserver.onrender.com/api/superadmin/pending-users", {
+      .get("https://activus-hqg2c8d7gqg7bbhq.eastasia-01.azurewebsites.net/api/superadmin/pending-users", {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
@@ -38,7 +38,7 @@ const UserApproval = () => {
 
     axios
       .post(
-        "https://activusserver.onrender.com/api/superadmin/approve-user",
+        "https://activus-hqg2c8d7gqg7bbhq.eastasia-01.azurewebsites.net/api/superadmin/approve-user",
         { userId, approve: isApproved },
         {
           headers: { Authorization: `Bearer ${token}` },

@@ -28,7 +28,7 @@ const ProjectsPage = () => {
       }
 
       axios
-        .get('https://activusserver.onrender.com/api/projects/all', {
+        .get('https://activus-hqg2c8d7gqg7bbhq.eastasia-01.azurewebsites.net/api/projects/all', {
           // Use 'localToken' for the header immediately
           headers: { Authorization: `Bearer ${localToken}` }, 
         })

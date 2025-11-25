@@ -35,7 +35,7 @@
 //   const fetchStakeholderUsername = async (contractorUsername) => {
 //     try {
 //       const response = await axios.get(
-//         'https://activusserver.onrender.com/api/projects/contractor/' + contractorUsername,
+//         'https://activus-hqg2c8d7gqg7bbhq.eastasia-01.azurewebsites.net/api/projects/contractor/' + contractorUsername,
 //         { headers: { Authorization: `Bearer ${token}` } }
 //       );
 //       if (response.data.data && response.data.data.length > 0) {
@@ -55,7 +55,7 @@
     
 //     try {
 //       const response = await axios.get(
-//         'https://activusserver.onrender.com/api/tds/s3Documents',
+//         'https://activus-hqg2c8d7gqg7bbhq.eastasia-01.azurewebsites.net/api/tds/s3Documents',
 //         {
 //           headers: { Authorization: `Bearer ${token}` },
 //           params: { 
@@ -85,7 +85,7 @@
 //       return;
 //     }
 
-//     const downloadUrl = `https://activusserver.onrender.com/api/tds/downloadFromS3?s3Key=${encodeURIComponent(s3Key)}`;
+//     const downloadUrl = `https://activus-hqg2c8d7gqg7bbhq.eastasia-01.azurewebsites.net/api/tds/downloadFromS3?s3Key=${encodeURIComponent(s3Key)}`;
 //     const token = localStorage.getItem('token');
     
 //     if (!token) {

@@ -14,7 +14,7 @@ const L2ProjectApproval = () => {
     }
 
     axios
-      .get('https://activusserver.onrender.com/api/projects/l2-validation', {
+      .get('https://activus-hqg2c8d7gqg7bbhq.eastasia-01.azurewebsites.net/api/projects/l2-validation', {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
@@ -35,7 +35,7 @@ const L2ProjectApproval = () => {
 
     axios
       .put(
-        `https://activusserver.onrender.com/api/projects/review/${projectId}?isApproved=${isApproved}`,
+        `https://activus-hqg2c8d7gqg7bbhq.eastasia-01.azurewebsites.net/api/projects/review/${projectId}?isApproved=${isApproved}`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },
